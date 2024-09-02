@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Red Social</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="cambiarColor()"[class]="colorClase">
+        <ion-spinner *ngIf="visibleLoading" name="circular" class="ion-margin-end"></ion-spinner>
+        <ion-icon *ngIf="invisibleHeart"name="heart"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+</ion-content>

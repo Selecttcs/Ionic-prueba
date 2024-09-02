@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="barra">
+    <ion-title>Duoc UC</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding fondo">
+  <ion-item class="input" lines="none">
+    <ion-input [(ngModel)]="mdl_user" label="Usuario" labelPlacement="floating"></ion-input>
+  </ion-item>
+  <ion-item class="input" lines="none">
+    <ion-input [(ngModel)]="mdl_pass" label="Contraseña" labelPlacement="floating"></ion-input>
+  </ion-item>
+  <ion-button expand="block" (click)="login()" class="boton"> 
+    <ion-spinner name="circles" class="ion-margin-end" *ngIf="loadingVisible"></ion-spinner>
+    Ingresar 
+  </ion-button>
+
+  <ion-item class="item-warning" lines="none" *ngIf="warningVisible">
+    Credenciales Inválidas
+  </ion-item>
+</ion-content>

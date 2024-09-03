@@ -15,6 +15,14 @@ const routes: Routes = [
     path: 'principal',
     loadChildren: () => import('./pages/principal/principal.module').then( m => m.PrincipalPageModule)
   },
+  {
+    path: 'crear-user',
+    loadChildren: () => import('./pages/crear-user/crear-user.module').then( m => m.CrearUserPageModule)
+  },
+  {
+    path: 'cambio-contrasenia',
+    loadChildren: () => import('./pages/cambio-contrasenia/cambio-contrasenia.module').then( m => m.CambioContraseniaPageModule)
+  },
 ];
 
 @NgModule({

@@ -1,20 +1,17 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Bienvenido: {{usuario}}</ion-title>
+  <ion-toolbar class="barra">
+    <ion-title>Home</ion-title>
     <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon slot="icon-only" name="person-add-outline"></ion-icon>
-      </ion-button>
-      <ion-button>
-        Cerrar Sesión
-      </ion-button>
+      <ion-back-button slot="start" defaultHref="/">
+        <ion-icon name="exit-outline"></ion-icon>
+      </ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="ion-padding fondo">
+ 
 
-  
 </ion-content>
 
 

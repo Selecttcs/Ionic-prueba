@@ -19,6 +19,10 @@ export class LoginPage implements OnInit {
     console.log('xD')
   }
 
+  createViajar(){
+    this.router.navigate(['crear-user'])
+  }
+
   login() {
     this.warningVisible = false;
     this.loadingVisible = true;

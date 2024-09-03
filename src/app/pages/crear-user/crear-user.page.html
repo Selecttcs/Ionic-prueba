@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="barra">
+    <ion-title>Crear Usuario</ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button slot="start" defaultHref="/">
+        <ion-icon name="exit-outline"></ion-icon>
+      </ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding fondo">
+  <ion-item class="input" lines="none">
+    <ion-input  label="Usuario" labelPlacement="floating"></ion-input>
+  </ion-item>
+  <ion-item class="input" lines="none">
+    <ion-input  label="Contraseña" labelPlacement="floating"></ion-input>
+  </ion-item>
+  <ion-button expand="block" class="boton"> 
+    Crear 
+  </ion-button>
+  <ion-button expand="block" (click)="viajarCambioContrasenia()" class="boton"> 
+    Cambiar contraseña
+  </ion-button>
+
+</ion-content>

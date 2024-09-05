@@ -11,5 +11,14 @@
 
 <ion-content [fullscreen]="true" class="ion-padding fondo">
  
-
+  <ion-item class="input" lines="none">
+    <ion-input [(ngModel)]="password" type="password" label="Contraseña actual" labelPlacement="floating" id="password"></ion-input>
+  </ion-item>
+  <ion-item class="input" lines="none">
+    <ion-input [(ngModel)]="newPassword" type="password" label="Ingresar nueva contraseña" labelPlacement="floating" id="newPassword"></ion-input>
+  </ion-item>
+  <ion-item class="input" lines="none">
+    <ion-input [(ngModel)]="newConfirmPassword" type="password" label="Confirmar nueva contraseña" labelPlacement="floating" id="newConfirmPassword"></ion-input>
+  </ion-item>
+  <ion-button (click)="cambiarContrasena()" class="boton" >Cambiar contraseña</ion-button>
 </ion-content>

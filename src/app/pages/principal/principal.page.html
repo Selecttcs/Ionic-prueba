@@ -2,16 +2,18 @@
   <ion-toolbar class="barra">
     <ion-title>Home</ion-title>
     <ion-buttons slot="end">
-      <ion-back-button slot="start" defaultHref="/">
+      <ion-button (click)="navHome()" style="font-size: 30px;">
         <ion-icon name="exit-outline"></ion-icon>
-      </ion-back-button>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding fondo">
- 
-
+  <img class="img-logo-principal" src="../../../assets/img/ul.png" alt="img-logo-principal" >
+  <ion-button expand="block" (click)="viajarCambioContrasenia()" class="boton" style="margin-top: 300px;"> 
+    Cambiar contraseña
+  </ion-button>
 </ion-content>
 
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -8,17 +9,21 @@ import { NavigationExtras, Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  mdl_user: string = '';
+  mdl_email: string = '';
   mdl_pass: string = '';
   warningVisible: boolean = false;
   loadingVisible: boolean = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
     console.log('xD')
   }
 
+  esconderWarning(){
+    this.warningVisible = false;
+
+  }
   createViajar(){
     this.router.navigate(['crear-user'])
   }
@@ -28,13 +33,14 @@ export class LoginPage implements OnInit {
     this.loadingVisible = true;
 
     setTimeout(() => {
-      if(this.mdl_user == "admin" && this.mdl_pass == "admin") {
+      const storedUser = this.userService.getUser();
+      if (storedUser && this.mdl_email === storedUser.nuevo_email && this.mdl_pass === storedUser.nuevo_password) {
         //NAVEGACION CON PARÁMETROS
         //valores que viajaran a otra paginas (extras)
         //let permite crear variables que solo se utilizaran en una sola ocasión, luego se esfuma
         let extras: NavigationExtras={
           state:{
-            "usuario":this.mdl_user,
+            "usuario":this.mdl_email,
             "contrasena":this.mdl_pass,
             "mensaje": "Hola, Soy un mensaje"
           },

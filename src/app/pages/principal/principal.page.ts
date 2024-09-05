@@ -10,6 +10,10 @@ export class PrincipalPage implements OnInit {
   usuario: string = '';
   pass: string = '';
   msj: string = '';
+
+  navHome(){
+    this.router.navigate(['login'])
+  }
   
 
   constructor(private router:Router){
@@ -29,6 +33,9 @@ export class PrincipalPage implements OnInit {
     console.log('USUARIO: ' + this.usuario)
     console.log('CONTRASENA: ' + this.pass)
     console.log('MENSAJE: ' + this.msj)
+  }
+  viajarCambioContrasenia(){
+    this.router.navigate(['cambio-contrasenia'])
   }
 
 }

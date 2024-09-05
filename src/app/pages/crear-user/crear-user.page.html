@@ -5,22 +5,36 @@
       <ion-back-button slot="start" defaultHref="/">
         <ion-icon name="exit-outline"></ion-icon>
       </ion-back-button>
+      
     </ion-buttons>
+    
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding fondo">
-  <ion-item class="input" lines="none">
-    <ion-input  label="Usuario" labelPlacement="floating"></ion-input>
+  <img class="img-crear" src="../../../assets/img/ul.png" alt="img-logo" >
+  <ion-item class="input" lines="none" style="margin-top: 50px;">
+    <ion-input [(ngModel)]="username" label="Nombre Usuario" labelPlacement="floating" id="username"></ion-input>
   </ion-item>
   <ion-item class="input" lines="none">
-    <ion-input  label="Contraseña" labelPlacement="floating"></ion-input>
+    <ion-input [(ngModel)]="email" type="email" label="Email" labelPlacement="floating" id="email"></ion-input>
   </ion-item>
-  <ion-button expand="block" class="boton"> 
-    Crear 
-  </ion-button>
-  <ion-button expand="block" (click)="viajarCambioContrasenia()" class="boton"> 
-    Cambiar contraseña
-  </ion-button>
+  <ion-item class="input" lines="none">
+    <ion-input [(ngModel)]="password" type="password" label="Contraseña" labelPlacement="floating" id="password"></ion-input>
+  </ion-item>
+  <ion-item class="input" lines="none">
+    <ion-input [(ngModel)]="confirmPassword" type="password" label="Confirmar Contraseña" labelPlacement="floating" id="confirmPassword"></ion-input>
+  </ion-item>
+  <ion-button (click)="limpiar()" class="boton" >Limpiar</ion-button>
 
+  <ion-item class="item-warning" lines="none" *ngIf="AlertaPasswordVisible" >
+    Las contraseñas no coinciden!
+  </ion-item>
+  <ion-item class="item-warning" lines="none" *ngIf="WarningCampos" >
+    Favor rellenar todos los campos!
+  </ion-item>
+  <ion-button expand="block" class="boton"  (click)="createUser()" style="margin-top: 150px;"> 
+    <ion-spinner name="circles"  class="ion-margin-end" *ngIf="LoadingVisible"></ion-spinner>
+    <ion-icon name="person-add-outline" slot="end" style="font-size: 30px;"></ion-icon>
+  </ion-button>
 </ion-content>

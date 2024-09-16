@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar class="barra">
-    <ion-title>Home</ion-title>
+    <ion-title>Bienvenido {{ usuario }}</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="navHome()" style="font-size: 30px;">
         <ion-icon name="exit-outline"></ion-icon>
@@ -10,11 +10,17 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding fondo">
-  <img class="img-logo-principal" src="../../../assets/img/ul.png" alt="img-logo-principal" >
-  <ion-button expand="block" (click)="viajarCambioContrasenia()" class="boton" style="margin-top: 300px;"> 
+  <img class="img-logo-principal" src="../../../assets/img/ul.png" alt="img-logo-principal">
+  
+  <div class="mensaje-descripcion">
+    <h2>¿Por qué elegir User Link?</h2>
+    <p><strong>Seguridad:</strong> Tus datos personales están protegidos con los más altos estándares de seguridad.</p>
+    <p><strong>Usabilidad:</strong> Diseñada pensando en el usuario, nuestra interfaz es intuitiva y fácil de navegar.</p>
+    <p><strong>Soporte:</strong> Estamos aquí para ayudarte. Si tienes alguna duda o problema, nuestro equipo de soporte está disponible para asistirte.</p>
+  </div>
+
+  <ion-button expand="block" (click)="viajarCambioContrasenia()" class="boton" style="margin-top: 30px;"> 
     Cambiar contraseña
   </ion-button>
 </ion-content>
-
-
 

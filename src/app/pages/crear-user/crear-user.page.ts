@@ -73,7 +73,6 @@ export class CrearUserPage implements OnInit {
         
       } else {
           console.log('Las contraseñas no coinciden');
-          this.WarningCampos = true;
           this.LoadingVisible = false;
           this.AlertaPasswordVisible = true;
         // Muestra un mensaje de error al usuario

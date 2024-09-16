@@ -20,5 +20,14 @@
   <ion-item class="input" lines="none">
     <ion-input [(ngModel)]="newConfirmPassword" type="password" label="Confirmar nueva contraseña" labelPlacement="floating" id="newConfirmPassword"></ion-input>
   </ion-item>
+  <ion-item class="item-warning" lines="none" *ngIf="AlertaPasswordVisible2" >
+    Ingreso de contraseña actual incorrecto
+  </ion-item>
+  <ion-item class="item-warning" lines="none" *ngIf="AlertaPasswordVisible" >
+    Las contraseñas no coinciden!
+  </ion-item>
+  <ion-item class="item-warning" lines="none" *ngIf="WarningCampos" >
+    Favor rellenar todos los campos!
+  </ion-item>
   <ion-button (click)="cambiarContrasena()" class="boton" >Cambiar contraseña</ion-button>
 </ion-content>

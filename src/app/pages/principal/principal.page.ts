@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-principal',
@@ -16,7 +17,7 @@ export class PrincipalPage implements OnInit {
   }
   
 
-  constructor(private router:Router){
+  constructor(private router:Router, private userService: UserService){
    
   }
 
@@ -33,9 +34,17 @@ export class PrincipalPage implements OnInit {
     console.log('USUARIO: ' + this.usuario)
     console.log('CONTRASENA: ' + this.pass)
     console.log('MENSAJE: ' + this.msj)
+    const user = this.userService.getUser();
+    if (user && user.nuevo_username) {
+      this.usuario = user.nuevo_username;
+    }
   }
   viajarCambioContrasenia(){
     this.router.navigate(['cambio-contrasenia'])
   }
+
+
+
+
 
 }

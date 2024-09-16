@@ -17,11 +17,21 @@ export class CambioContraseniaPage implements OnInit {
   AlertaPasswordVisible: boolean = false;
   LoadingVisible: boolean = false;
   WarningCampos: boolean = false;
+  AlertaPasswordVisible2: boolean = false;
 
-constructor(private router: Router, private userService: UserService) { }
+constructor(private router: Router, private userService: UserService,private alertController: AlertController) { }
 
   ngOnInit() {
     console.log('Hola cambio contraseña')
+  }
+  async presentSuccessAlert() {
+    const alert = await this.alertController.create({
+      header: 'Éxito',
+      message: 'La contraseña se ha cambiado con éxito.',
+      buttons: ['OK'] // Configuración del botón OK
+    });
+
+    await alert.present();
   }
 
   cambiarContrasena(){
@@ -34,14 +44,16 @@ constructor(private router: Router, private userService: UserService) { }
         if (this.newPassword === this.newConfirmPassword) {
           storedUser.nuevo_password = this.newPassword;
           this.userService.setUser(storedUser);
-        
+          this.LoadingVisible = false;
+          this.AlertaPasswordVisible = false;
+          this.AlertaPasswordVisible2 = false;
+          this.presentSuccessAlert();
           setTimeout(() => {
           this.router.navigate(["principal"]);
         }, 2000);
         
       } else {
           console.log('Las contraseñas no coinciden');
-          this.WarningCampos = true;
           this.LoadingVisible = false;
           this.AlertaPasswordVisible = true;
         // Muestra un mensaje de error al usuario
@@ -50,6 +62,7 @@ constructor(private router: Router, private userService: UserService) { }
   
       }else{
         console.log('Ingreso de contraseña actual incorrecto');
+        this.AlertaPasswordVisible2 = true;
 };
 }
 }
